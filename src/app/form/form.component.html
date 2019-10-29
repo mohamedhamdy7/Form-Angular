@@ -1,0 +1,38 @@
+<form #myform="ngForm" (ngSubmit)="save()">
+    <div class="form-group">
+        <input type="text"
+               name="name"
+               [(ngModel)]="item.name"
+               class="form-control"
+               placeholder="Enter Your Name ">
+    </div>
+    <div class="form-group">
+
+        <input type="text"
+               name="address"
+               [(ngModel)]="item.address"
+               class="form-control"
+               placeholder="Enter Your Address">
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<table border="3" class="table" style="margin: 50px auto;width: 50%;text-align: center">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Address</td>
+        <td colspan="1">Actions</td>
+    </tr>
+
+    <tr *ngFor="let d of data;let i=index" (click)="showForEdit(d)">
+
+        <td>{{d.id}}</td>
+        <td>{{d.name}}</td>
+        <td>{{d.address}}</td>
+        <td>
+            <button (click)="OnDelete(d)">Delete</button>
+        </td>
+    </tr>
+</table>
+
